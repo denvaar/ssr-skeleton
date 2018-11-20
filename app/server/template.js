@@ -1,4 +1,4 @@
-export default ({ body, title }) => {
+export default ({ body, title, state }) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -10,6 +10,9 @@ export default ({ body, title }) => {
 
       <body>
         <div id="root">${body}</div>
+        <script>
+          window.__INITIAL_STATE__ = ${JSON.stringify(state)}
+        </script>
         <script src="/client/bundle.js" defer></script>
       </body>
     </html>
